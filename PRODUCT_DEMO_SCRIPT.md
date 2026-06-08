@@ -4,13 +4,23 @@
 
 Hello everyone, today I am presenting **Local Dev Memory**.
 
-Local Dev Memory is a private developer memory platform for engineering sessions. It helps developers and teams browse, search, inspect, debug, and export coding-agent sessions from tools like Codex, Cursor, Claude Code, and other AI coding assistants.
+Local Dev Memory is a private memory system for developers who use AI coding assistants like Codex, GitHub Copilot, Claude Code, Cursor, Perplexity, and similar tools.
 
 The main problem we are solving is this:
 
-Developers now use AI coding agents every day, but after a session ends, the context is scattered. The transcript is in one place, code changes are somewhere else, commit information is separate, and the reason behind a change is often lost.
+Developers now use AI coding assistants every day while fixing bugs, building features, and creating pull requests. But the knowledge created during those conversations is usually lost.
 
-So when a bug appears later, teams ask:
+A developer may work on many pull requests over a few months. Later, when they need to understand why a change was made, what approach was taken, or what reasoning led to a specific implementation, that information is difficult to find.
+
+Most tools only show recent sessions. Older conversations become hard to reach unless the developer manually saved them.
+
+So valuable engineering knowledge disappears.
+
+Local Dev Memory solves this by reading local coding-agent session logs and creating a searchable knowledge base.
+
+Now developers can search old conversations by keyword, file name, date, repository, commit id, or change text.
+
+When a bug appears later, we can answer:
 
 - What exactly changed?
 - Why was it changed?
@@ -19,9 +29,9 @@ So when a bug appears later, teams ask:
 - Was the change tested?
 - Can we debug this from the original engineering evidence?
 
-Local Dev Memory answers those questions.
+In simple words:
 
-It turns coding sessions into searchable, explainable, and debuggable engineering memory.
+**Git tracks code. Local Dev Memory tracks engineering knowledge.**
 
 ## 2. Product Positioning
 
@@ -31,9 +41,11 @@ The first is **Local Mode**.
 
 Local Mode is for an individual developer. It reads local Codex sessions, indexes them privately, and lets the developer search, inspect, and export their own engineering history.
 
-The second is **Remote Debug Mode**.
+The second is **Team Debug Mode**.
 
-Remote Debug Mode is for teams. Imagine a project with ten developers. Each developer is using Codex or another coding agent. Their sessions can be uploaded or fetched into one central private debug workspace. If a production issue happens, the team can debug by developer, project, file, repository, issue signal, or session.
+Team Debug Mode is for teams. Imagine a project with ten developers. Each developer is using Codex or another coding agent. Their sessions are kept in one shared debug memory. Like local mode, the team can search, inspect, open, and debug sessions, but now across multiple developers.
+
+If a production issue happens, the team can search the collective memory and find relevant conversations, files, commits, decisions, and original implementation intent.
 
 ## 3. Demo Navigation Script
 
@@ -149,17 +161,17 @@ Search results show matching evidence across sessions. The result also includes 
 
 This is powerful because instead of searching only code, we are searching engineering memory.
 
-### Step 9 - Open Remote Debug Mode
+### Step 9 - Open Team Debug Mode
 
-Scroll or look near the top section called **Remote Debug Mode**.
+Scroll or look near the top section called **Remote Debug Mode** in the UI. In the demo speech, explain this as **Team Debug Mode**.
 
 Expand it if it is collapsed.
 
 Say:
 
-Now I will show Remote Debug Mode. This is the team debugging workspace.
+Now I will show Team Debug Mode. This is the shared debugging workspace for multiple developers.
 
-In this mode, a project can have multiple developers using different coding agents. Their sessions are uploaded or fetched into one central private debug index.
+In this mode, a project can have multiple developers using different coding agents. Their sessions are kept in one central private debug index. Like local mode, we can search, inspect, open, and debug these sessions, but now at team level.
 
 ### Step 10 - Demo Mode
 
@@ -175,13 +187,13 @@ Say:
 
 Now we can see project count, developer count, remote session count, and issue count.
 
-### Step 11 - Explain Remote Debug Filters
+### Step 11 - Explain Team Debug Filters
 
 Show the project/developer/filter row.
 
 Say:
 
-Here I can filter the remote debug board by project, developer, or issue text. This helps a lead engineer or engineering manager narrow down the investigation.
+Here I can filter the team debug board by project, developer, or issue text. This helps a lead engineer or engineering manager narrow down the investigation.
 
 For example, if a production issue is related to checkout retry, I can search for `retry` or filter by the developer who worked on checkout.
 
@@ -209,7 +221,7 @@ Point to **Debug hotspots**.
 
 Say:
 
-Debug hotspots show files and repositories that appear repeatedly across remote sessions. If the same file appears across multiple issue sessions, that is a strong signal for investigation.
+Debug hotspots show files and repositories that appear repeatedly across team sessions. If the same file appears across multiple issue sessions, that is a strong signal for investigation.
 
 Click one hotspot file if available.
 
@@ -217,19 +229,19 @@ Say:
 
 Clicking a hotspot can search related evidence, so the team can quickly find all sessions connected to that file.
 
-### Step 14 - Explain Remote Sessions in Scope
+### Step 14 - Explain Team Sessions in Scope
 
-Point to **Remote sessions in scope**.
+Point to **Remote sessions in scope** in the UI. In the speech, call these team sessions.
 
 Say:
 
-This section lists remote sessions matching the current project, developer, or search scope. Each session shows developer name, tool name, repository, issue count, files, and summary.
+This section lists team sessions matching the current project, developer, or search scope. Each session shows developer name, tool name, repository, issue count, files, and summary.
 
 Click **Open session viewer** on one remote session.
 
 Say:
 
-Remote sessions open in the same normal session viewer. That means the remote mode gets the same capabilities as local mode: Summary, What Changed, Timeline, Transcript, Explorer, Search, and Export.
+Team sessions open in the same normal session viewer. That means Team Debug Mode gets the same capabilities as Local Mode: Summary, What Changed, Timeline, Transcript, Explorer, Search, and Export.
 
 ### Step 15 - Explain Developer Coverage
 
@@ -247,7 +259,7 @@ Point to the project, developer, and upload forms.
 
 Say:
 
-Remote sessions can be uploaded as JSON. In the future, this can also be automated through a fetch endpoint or agent integration.
+Team sessions can be uploaded as JSON. In the future, this can also be automated through a fetch endpoint or agent integration.
 
 This means each developer's coding-agent session can become part of the team debug memory automatically.
 
@@ -259,29 +271,33 @@ Local Dev Memory gives developers and teams a private memory layer over AI-assis
 
 For an individual developer, it is a local session browser and search system.
 
-For a team, Remote Debug Mode becomes a shared debugging workspace where developer sessions, files, commits, decisions, and issue signals are connected.
+For a team, Team Debug Mode becomes a shared debugging workspace where developer sessions, files, commits, decisions, and issue signals are connected.
 
 The main value is faster debugging, better traceability, better AI-code review, and preserved engineering context.
 
 Instead of asking, "Who changed this and why?", the team can open Local Dev Memory and see the actual evidence.
 
-That is the vision of Local Dev Memory: searchable, explainable, and debuggable engineering memory.
+That is the vision of Local Dev Memory: a searchable memory layer for software development.
+
+Again, the simple message is:
+
+**Git tracks code. Local Dev Memory tracks engineering knowledge.**
 
 ## 5. Merits
 
 - Private local-first design.
 - Works with coding-agent sessions.
 - Helps explain what changed and why.
-- Supports local and remote/team workflows.
+- Supports local and team debug workflows.
 - Makes sessions searchable by file, commit, repo, date, and decision text.
 - Preserves transcript and raw evidence.
 - Provides AI-style debug briefs without requiring external LLMs.
-- Remote Debug Mode supports project, developer, session, issue, and hotspot investigation.
+- Team Debug Mode supports project, developer, session, issue, and hotspot investigation.
 - Useful for debugging, audit, code review, and onboarding.
 
 ## 6. Demerits / Current Limitations
 
-- Remote upload is still manual unless integrated with developer tools.
+- Team session upload is still manual unless integrated with developer tools.
 - LLM mode is currently local evidence-based, not connected to a hosted model yet.
 - Git commit linking still needs stronger automation for remote repositories.
 - The UI is functional but can be further refined for large enterprise teams.
@@ -299,4 +315,3 @@ That is the vision of Local Dev Memory: searchable, explainable, and debuggable 
 - Add team dashboards and issue tracker integration.
 - Add Slack/Teams incident debug assistant.
 - Add production deployment mode.
-
